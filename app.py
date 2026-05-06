@@ -2,11 +2,11 @@ import streamlit as st
 import joblib
 import pandas as pd
 
-# 1. Load the model and feature names
+# Model and feature names loading
 model = joblib.load('performance_model.pkl')
 features = joblib.load('model_features.pkl')
 
-# Define your Mappings
+# Mappings
 edu_options = {1: 'Below College', 2: 'College', 3: 'Bachelor', 4: 'Master', 5: 'Doctor'}
 wolbal_options = {1: 'Bad', 2: 'Good', 3: 'Better', 4: 'Best'}
 
@@ -78,9 +78,8 @@ if submit:
     
     st.divider()
     if prediction == 4:
-        st.balloons()
-        st.success(f"### Predicted Rating: CLASS {prediction[0]} (Outstanding)")
+        st.success(f"### Predicted Performace Rating: CLASS {prediction[0]} ")
     elif prediction == 3:
-        st.info(f"### Predicted Rating: CLASS {prediction[0]} (Good)")
+        st.info(f"### Predicted Performance Rating: CLASS {prediction[0]} ")
     else:
-        st.warning(f"### Predicted Rating: CLASS {prediction[0]} (Needs Improvement)")
+        st.warning(f"### Predicted Performance Rating: CLASS {prediction[0]} ")
